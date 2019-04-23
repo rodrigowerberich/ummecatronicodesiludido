@@ -223,10 +223,10 @@ sass:
 permalink: /:categories/:title/
 main_locale: 'br'
 paginate_multiple:
-  - paginate: 5
+  - paginate: 1
     paginate_path: '/br/page:num/'
     sub_dir: '/br'
-  - paginate: 5
+  - paginate: 1
     paginate_path: '/en/page:num/'
     sub_dir: '/en'
     

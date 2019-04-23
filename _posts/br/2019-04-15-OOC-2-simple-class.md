@@ -4,7 +4,7 @@ classes: wide
 permalink: /ooc/simple-class/br
 ref: ooc_simple_class
 locale: br
-excerpt: "How to create a simple class."
+excerpt: "Como criar uma classe simples."
 last_modified_at: 2019-04-15T01:30:10-05:00
 toc: true
 toc_icon: "cog"

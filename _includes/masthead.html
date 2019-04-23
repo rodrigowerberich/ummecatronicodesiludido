@@ -49,15 +49,42 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              {% assign posts=site.posts | where:"ref", page.ref | sort: 'locale' %}
-              {% for post in posts %}
+              {% assign f_p = site.posts | where:"ref", page.ref | sort: 'locale' %}
+              {% assign f_p1 = site.pages | where:"ref", page.ref | sort: 'locale' %}
+              {% assign num_candidates = f_p.size | plus: f_p1.size %}
+              {% if num_candidates > 2 %}
+                {% assign this_path_locale = '/' | append: locale %}
+                {% assign this_pure_url = page.url | remove_first: this_path_locale %}                
+                {% assign posts=site.posts | where:"ref", page.ref | sort: 'locale' %}
+                
+                {% for post in posts %}
+                  {% assign path_locale = "/" | append: post.locale %}
+                  {% assign pure_url = post.url | remove_first: path_locale %}
+                  {% if this_pure_url == pure_url %}
+                    <a href="{{ post.url }}" class="{{ post.locale }}">{{ post.locale }}</a>
+                  {% endif %}
+                {% endfor %}
+                
+                {% assign pages=site.pages | where:"ref", page.ref | sort: 'locale' %}
+                {% for page in pages %}
+                  {% assign path_locale = '/' | append: page.locale %}
+                  {% assign pure_url = page.url | remove_first: path_locale %}
+                  {% if this_pure_url == pure_url %}
+                    <a href="{{ page.url }}" class="{{ page.locale }}">{{ page.locale }}</a>
+                  {% endif %}
+                {% endfor %}
+
+              {% else %}  
+                {% assign posts=site.posts | where:"ref", page.ref | sort: 'locale' %}
+                {% for post in posts %}
                   <a href="{{ post.url }}" class="{{ post.locale }}">{{ post.locale }}</a>
-              {% endfor %}
-              
-              {% assign pages=site.pages | where:"ref", page.ref | sort: 'locale' %}
-              {% for page in pages %}
+                {% endfor %}
+                
+                {% assign pages=site.pages | where:"ref", page.ref | sort: 'locale' %}
+                {% for page in pages %}
                   <a href="{{ page.url }}" class="{{ page.locale }}">{{ page.locale }}</a>
-              {% endfor %}
+                {% endfor %}
+              {% endif %}
             </div>
         </div>
         <!-- <ul>

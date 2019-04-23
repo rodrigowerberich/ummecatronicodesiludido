@@ -4,7 +4,7 @@ classes: wide
 permalink: /ooc/super-class/br
 ref: ooc_super_class
 locale: br
-excerpt: "How to create a simple class."
+excerpt: "Como criar uma super classe."
 last_modified_at: 2019-04-15T01:30:10-05:00
 toc: true
 toc_icon: "cog"
