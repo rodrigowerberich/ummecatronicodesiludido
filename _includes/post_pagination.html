@@ -4,15 +4,14 @@
   {% assign locale = site.locale %}
 {% endif %}
 
-
 {% if page.previous or page.next %}
   <nav class="pagination">
-    {% if page.previous %}
+    {% if page.previous and  page.locale == page.previous.locale %}
       <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html }}">{{ site.data.ui-text[locale].pagination_previous | default: "Previous" }}</a>
     {% else %}
       <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[locale].pagination_previous | default: "Previous" }}</a>
     {% endif %}
-    {% if page.next %}
+    {% if page.next and page.locale == page.next.locale %}
       <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html }}">{{ site.data.ui-text[locale].pagination_next | default: "Next" }}</a>
     {% else %}
       <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[locale].pagination_next | default: "Next" }}</a>
