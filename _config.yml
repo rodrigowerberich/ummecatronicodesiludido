@@ -224,10 +224,10 @@ permalink: /:categories/:title/
 main_locale: 'br'
 paginate_path: /blog/page:num/
 paginate_multiple:
-  - paginate: 1
+  - paginate: 4
     paginate_path: '/blog/page:num/'
     sub_dir: '/br'
-  - paginate: 1
+  - paginate: 4
     paginate_path: '/en/blog/page:num/'
     sub_dir: '/en'
     
